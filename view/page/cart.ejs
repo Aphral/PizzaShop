@@ -1,0 +1,91 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/header.ejs %>
+
+<body class="container">
+<% include ../partials/nav.ejs %>
+
+<main>
+    <div class="list-of-pizzas">
+        <h1 class="display-3">Cart</h1>
+        <h2 class="display-3">Pizzas</h2>
+        <% if(orderPizzas.length){ %>
+            <ul style="list-style-type:none;">
+                <% orderPizzas.forEach(function (orderPizza) { %>
+                    <h2>Pizza: <%= orderPizza.Pizza %></h2>
+                <div class = "list-group">
+                    <li><h3>Size: <%= orderPizza.Size %> &nbsp &nbsp Price: <%= orderPizza.Price %> </h3></li>
+                </div>
+                <% }) %>
+            </ul>
+        <% } %>
+
+        <!-- <img src = "../public/images/pepperoni.jpg"> -->
+    </div>
+
+    <div class ="list-of-pizzas">
+        <h2 class="display-3">Sides</h2>
+        <% if(orderNons.length){ %>
+            <ul style="list-style-type:none;">
+                <% orderNons.forEach(function (orderNon) { %>
+                    <h2>Pizza: <%= orderNon.NonName %></h2>
+                    <div class = "list-group">
+                        <li><h3>Price: <%= orderNon.NonPrice %> </h3></li>
+                    </div>
+                <% }) %>
+            </ul>
+        <% } %>
+    </div>
+    <form action = "/confirm" class="form-horizontal">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Payment">Payment</label>
+                <div class="col-md-4">
+                    <div class="radio">
+                        <label for="Payment-0">
+                            <input type="radio" name="Payment" id="Payment-0" value="Cash" checked="checked">
+                            Cash
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="Payment-1">
+                            <input type="radio" name="Payment" id="Payment-1" value="Card">
+                            Card
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Delivery">Delivery</label>
+                <div class="col-md-4">
+                    <div class="radio">
+                        <label for="Delivery-0">
+                            <input type="radio" name="Delivery" id="Delivery-0" value="1" checked="checked">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="Delivery-1">
+                            <input type="radio" name="Delivery" id="Delivery-1" value="0">
+                            No, I'll Collect
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <a href="/confirm">
+                    <button type="submit" class="btn btn-primary">Confirm Order</button>
+                </a>
+            </div>
+        </fieldset>
+    </form>
+
+
+</main>
+
+<% include ../partials/footer.ejs %>
+</body>

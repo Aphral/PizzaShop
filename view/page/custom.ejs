@@ -1,0 +1,65 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/header.ejs %>
+
+<body class="container">
+<% include ../partials/nav.ejs %>
+
+<main>
+    <div class="jumbotron">
+        <h1>Custom Pizza</h1>
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Form Name</legend>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="pizzaSize">Size</label>
+                    <div class="col-md-4">
+                        <select id="pizzaSize" name="pizzaSize" class="form-control">
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="pizzaSize">Sauce</label>
+                    <div class="col-md-4">
+                        <select id="pizzaSize" name="pizzaSize" class="form-control">
+                            <option value="Tomato">Tomato</option>
+                            <option value="BBQ">BBQ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Multiple Checkboxes -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="ingredients">Ingredients</label>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="customButton"></label>
+                    <div class="col-md-4">
+                        <button id="customButton" name="customButton" class="btn btn-primary">Add To Cart</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+</main>
+
+<% include ../partials/footer.ejs %>
+</body>
+</html>

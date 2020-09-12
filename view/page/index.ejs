@@ -1,0 +1,159 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/header.ejs %>
+
+<body class="container">
+<% include ../partials/nav.ejs %>
+
+
+<main>
+    <div class="jumbotron">
+        <h1>Welcome</h1>
+        <h2>Popular Pizza's</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                            <img src="images/cheese.jpg" alt="Lights" style="width:300px ;height:300px">
+                            <div class="caption">
+                                <p>Classic Cheese</p>
+                                <% if(ingredients.length){ %>
+                                    <ul>
+                                        <% ingredients.forEach(function (ingredient) { %>
+                                            <% if(ingredient.PizzaID === 1){ %>
+                                            <li> <%= ingredient.IngredientName %> </li>
+                                                <%   }%>
+
+                                        <% }) %>
+                                    </ul>
+                                    <% for( var i =0; i < ingredients.length; i++){ %>
+                                        <% if(ingredients[i].PizzaID === 1){ %>
+                                            <div class="caption"> Price: <%= ingredients[i].PizzaPrice %> </div>
+                                            <%   break%>
+                                        <%   }%>
+                                    <% } %>
+                                <% } %>
+                                <a href="/addPizzaToCart?pizza=1">
+                                    <div>
+                                        <button type="button" class="btn btn-info" style="width:100%">Add To Cart</button>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                            <img src="images/vegetarian.jpg" alt="Nature" style="width:300px ;height:300px">
+                            <div class="caption">
+                                <p>Vegetarian</p>
+                                <% if(ingredients.length){ %>
+                                    <ul>
+                                        <% ingredients.forEach(function (ingredient) { %>
+                                            <% if(ingredient.PizzaID === 3){ %>
+                                                <li> <%= ingredient.IngredientName %> </li>
+                                            <%   }%>
+
+                                        <% }) %>
+                                    </ul>
+                                    <% for( var i =0; i < ingredients.length; i++){ %>
+                                        <% if(ingredients[i].PizzaID === 3){ %>
+                                            <div class="caption"> Price: <%= ingredients[i].PizzaPrice %> </div>
+                                            <%   break%>
+                                        <%   }%>
+                                    <% } %>
+                                <% } %>
+                                <a href="/addPizzaToCart?pizza=3">
+                                <div><button type="button" class="btn btn-info" style="width:100%">Add To Cart</button></div>
+                                </a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                            <img src="images/pepperoni.jpg" alt="Fjords" style="width:300px ;height:300px">
+                            <div class="caption">
+                                <p>Pepperoni</p>
+                                <% if(ingredients.length){ %>
+                                    <ul>
+                                        <% ingredients.forEach(function (ingredient) { %>
+                                            <% if(ingredient.PizzaID === 2){ %>
+                                                <li> <%= ingredient.IngredientName %> </li>
+                                            <%   }%>
+
+                                        <% }) %>
+                                    </ul>
+                                <% for( var i =0; i < ingredients.length; i++){ %>
+                                        <% if(ingredients[i].PizzaID === 2){ %>
+                                            <div class="caption"> Price: <%= ingredients[i].PizzaPrice %> </div>
+                                            <%   break%>
+                                        <%   }%>
+                                <% } %>
+                                <% } %>
+                                <a href="/addPizzaToCart?pizza=2">
+                                <div><button type="button" class="btn btn-info" style="width:100%">Add To Cart</button></div>
+                                </a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        <br>
+        <h2>Popular Side's</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="images/garlicbread.jpg" alt="Lights" style="width:300px ;height:300px">
+                        <div class="caption">
+                            <p>Garlic Bread</p>
+                            <a href="/addNonToCart?non=1">
+                            <div><button type="button" class="btn btn-info" style="width:100%">Add To Cart</button></div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="images/chickendippers.jpg" alt="Nature" style="width:300px ;height:300px">
+                        <div class="caption">
+                            <p>Chicken Dippers</p>
+                            <a href="/addNonToCart?non=2">
+                            <div><button type="button" class="btn btn-info" style="width:100%">Add To Cart</button></div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="images/wedges.jpg" alt="Fjords" style="width:300px ;height:300px">
+                        <div class="caption">
+                            <p>Wedges</p>
+                            <a href="/addNonToCart?non=4">
+                            <div><button type="button" class="btn btn-info" style="width:100%">Add To Cart</button></div>
+                            </a>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <a href="/custom">
+                    <button type="button" class="btn btn-info" style="width:200px ;height: 50px">Custom Pizza</button>
+                </a>
+
+            </div>
+    </div>
+    </div>
+</main>
+
+<% include ../partials/footer.ejs %>
+</body>
+</html>
